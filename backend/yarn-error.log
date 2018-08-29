@@ -1,0 +1,52 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.7.0/libexec/bin/yarn.js add mongoose passport session cookieParser bodyParser graphql graphql-yoga merge-graphql-schemas graphql-tools passport-local-mongoose
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+Yarn version: 
+  1.7.0
+
+Node version: 
+  9.3.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/cookieParser: Not found
+      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:65656:18)
+      at Request.self.callback (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:134675:22)
+      at Request.emit (events.js:159:13)
+      at Request.<anonymous> (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:135658:10)
+      at Request.emit (events.js:159:13)
+      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.7.0/libexec/lib/cli.js:135578:12)
+      at Object.onceWrapper (events.js:254:19)
+      at IncomingMessage.emit (events.js:164:20)
+      at endReadableNT (_stream_readable.js:1062:12)
+      at process._tickCallback (internal/process/next_tick.js:152:19)
+
+npm manifest: 
+  {
+    "name": "backend",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "start": "node ./bin/www"
+    },
+    "dependencies": {
+      "body-parser": "~1.18.2",
+      "cookie-parser": "~1.4.3",
+      "debug": "~2.6.9",
+      "express": "^4.16.3",
+      "jade": "~1.11.0",
+      "morgan": "~1.9.0",
+      "serve-favicon": "~2.4.5"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
