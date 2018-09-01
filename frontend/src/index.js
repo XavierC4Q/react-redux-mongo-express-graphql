@@ -15,12 +15,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
 const client = new ApolloClient({
-  link: new HttpLink({uri: `localhost:8080/api`}),
+  link: new HttpLink({uri: `http://localhost:8080/api`}),
   cache: new InMemoryCache()
 })
 
-const storeConfig = (initialState) => {
-  return createStore(allReducers, initialState, applyMiddleware(thunk))
+const storeConfig = () => {
+  return createStore(allReducers, {}, applyMiddleware(thunk))
 }
 
 const store = storeConfig()
