@@ -5,12 +5,16 @@ const path = require('path');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
+
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy;
 const config = require('./config')
+const cors = require('cors')
+
 const db = require('mongoose')
 const User = require('./models/users')
 const session = require('express-session');
+
 const index = require('./routes/index');
 const users = require('./routes/users');
 const api = require('./routes/api')
@@ -32,6 +36,8 @@ db.globalPromise = Promise
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+
+app.use(cors())
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(session({

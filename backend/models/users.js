@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const PptLclMon = require('passport-local-mongoose')
+const PassportLocalMongoose = require('passport-local-mongoose')
 const Schema = mongoose.Schema
 
 const UserSchema = new Schema({
@@ -10,10 +10,13 @@ const UserSchema = new Schema({
   email: {
     type: String,
     required: true
+  },
+  photo: {
+    type: String
   }
 })
 
-UserSchema.plugin(PptLclMon)
+UserSchema.plugin(PassportLocalMongoose)
 
 
 const User = mongoose.model('User', UserSchema)

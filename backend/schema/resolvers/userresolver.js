@@ -19,6 +19,14 @@ module.exports = {
       } else {
         return "Not logged in"
       }
+    },
+    isLoggedIn: (obj, args, context, info) => {
+      if (context.req.session.passport) {
+        return true
+      }
+      else {
+        return false
+      }
     }
   },
   Mutation: {
@@ -73,7 +81,7 @@ module.exports = {
           })
           return user
       } else {
-        return "LOGGED IN ALREADY"
+        throw new Error("Logged in already")
       }
     }
   }
