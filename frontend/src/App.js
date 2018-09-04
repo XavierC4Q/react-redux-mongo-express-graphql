@@ -1,20 +1,19 @@
-import React, { Component } from 'react';
-import { Route, Link, Switch } from 'react-router'
-import { connect } from 'react-redux'
+import React, {Component} from 'react';
+import {Route, Link, Switch} from 'react-router'
+import {connect} from 'react-redux'
 
 import LandingPage from './landing'
-import LoginPage from './auth/login'
-import RegisterPage from './auth/register'
+import AuthIndex from './auth/index'
 
 class App extends Component {
-  render(){
-    return(
-      <div>
-        <Route path='/' component = {LandingPage}/>
-        <Route path='/auth/login' component = {LoginPage}/>
-        <Route path='/new/register' component = {RegisterPage}/>
-      </div>
-    )
+  render() {
+    return (<div>
+      <Switch>
+        <Route exact path='/' component={LandingPage}/>
+        <Route path='/test' component={AuthIndex}/>
+        <Route path='/test' component={AuthIndex}/>
+      </Switch>
+    </div>)
   }
 }
 

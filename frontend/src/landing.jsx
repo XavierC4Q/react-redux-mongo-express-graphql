@@ -1,26 +1,35 @@
 import React from 'react';
-import { Link } from 'react-router'
-import { graphql } from 'react-apollo'
+import { Link } from 'react-router-dom'
+import { graphql, Query } from 'react-apollo'
 import { GET_ALL_USERS } from './graphql/queries'
 
-const Landing = ({ data: { loading, error, allUsers }}) => {
-  if(loading){
-    return (<div>loading all users</div>)
-  }
-  if(error){
-    return (<div>error fetching users</div>)
-  }
+const LandingPage = () => {
   return(
-    <div>
-      <h1>All Users</h1>
-      {allUsers.map(user => (
-        <li>{user.username}</li>
-      ))}
-    </div>
+    <Query query={GET_ALL_USERS}>
+      {
+        ({ loading, error, data }) => {
+          const { allUsers } = data
+
+          if(loading || !data){
+            return(<div>loading loading</div>)
+          }
+
+          if(error){
+            return(<div>error with query</div>)
+          }
+
+          return(
+            <div>
+              <h1>Users my wonderful Users</h1>
+              {allUsers.map(user => (
+                <p>{user.username}</p>
+              ))}
+            </div>
+          )
+        }
+      }
+    </Query>
   )
 }
-
-
-const LandingPage = graphql(GET_ALL_USERS)(Landing)
 
 export default LandingPage
