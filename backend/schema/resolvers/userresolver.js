@@ -37,7 +37,8 @@ module.exports = {
       if (!usernameTaken) {
         let newUser = new User({
           username: args.username,
-          email: args.email
+          email: args.email,
+          photo: args.photo
         })
         await newUser.setPassword(args.password)
         await newUser.save()
